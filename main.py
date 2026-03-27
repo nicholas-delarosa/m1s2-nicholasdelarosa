@@ -33,7 +33,19 @@ while True:
             print()
 
     elif opcion == "3":
-        print("Calcular estadísticas")
+        if not inventario:
+            print("No hay datos para calcular estadísticas.\n")
+        else:
+            valor_total = 0
+            cantidad_total = 0
+
+            for producto in inventario:
+                valor_total += producto["precio"] * producto["cantidad"]
+                cantidad_total += producto["cantidad"]
+
+            print("\n--- ESTADÍSTICAS ---")
+            print(f"Valor total del inventario: {valor_total}")
+            print(f"Cantidad total de productos: {cantidad_total}\n")
 
     elif opcion == "4":
         print("Saliendo del sistema...")
