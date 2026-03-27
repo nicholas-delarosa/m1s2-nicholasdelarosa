@@ -24,7 +24,13 @@ while True:
         print("Producto agregado correctamente.\n")
 
     elif opcion == "2":
-        print("Mostrar inventario")
+        if not inventario:
+            print("El inventario está vacío.\n")
+        else:
+            print("\n--- INVENTARIO ---")
+            for producto in inventario:
+                print(f"Producto: {producto['nombre']} | Precio: {producto['precio']} | Cantidad: {producto['cantidad']}")
+            print()
 
     elif opcion == "3":
         print("Calcular estadísticas")
